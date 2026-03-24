@@ -94,14 +94,14 @@ Plots h1…h8               ← pseudoranges, C/N₀, PVT, geoplot
 
 ## Collected Logs
 
-| Log name | Phone | Time | Lat | Lon | Alt (m) | Low Battery | Description |
+| Log name | Phone | Time | Lat | Lon | Alt (m) | Low Battery Mode | Description |
 |---|---|---|---|---|---|---|---|
-| dataset_20260318_basket_1 | Marco | 18:42:09 | 45.064881 | 7.657425 | 250 | ? | Log in openspace in front of I rooms |
-| dataset_20260318_basket_2 | Marco | 19:11:24 | 45.064881 | 7.657425 | 250 | ? | Log in openspace in front of I rooms, second try |
-| dataset_20260318_R3 | Marco | 18:24:21| 45.066375 | 7.657918 | 255 | ? | Log inside room R3 |
-| dataset_20260319_outdoor_I | Marco | 13:27:58 | 45.065066 | 7.658469 | 253 | ? | Log on table outside above rooms I|
-| dataset_20260324_dumarey | Marco | 13:45:23 | 45.063878 | 7.658574 | 250 | 63% | Log outside Dumarey building, near high wall of the entrance (Sky plot was visible limited due to the building heigth)|
-| dataset_20260324_microonde | Marco | 13:55:48 | 45.064378 | 7.659286 | 250 | 60% | Log measured inside Ex celid room, near window in the microwave room |
+| dataset_20260318_basket_1 | Marco | 18:42:09 | 45.064881 | 7.657425 | 250 | 0 | Log in openspace in front of I rooms |
+| dataset_20260318_basket_2 | Marco | 19:11:24 | 45.064881 | 7.657425 | 250 | 0 | Log in openspace in front of I rooms, second try |
+| dataset_20260318_R3 | Marco | 18:24:21| 45.066375 | 7.657918 | 255 | 0 | Log inside room R3 |
+| dataset_20260319_outdoor_I | Marco | 13:27:58 | 45.065066 | 7.658469 | 253 | 0 | Log on table outside above rooms I|
+| dataset_20260324_dumarey | Marco | 13:45:23 | 45.063878 | 7.658574 | 250 | 0 | Log outside Dumarey building, near high wall of the entrance (Sky plot was visible limited due to the building heigth)|
+| dataset_20260324_microonde | Marco | 13:55:48 | 45.064378 | 7.659286 | 250 | 0 | Log measured inside Ex celid room, near window in the microwave room |
 | dataset_20260321_Fabio_old | Fabio's old phone | 09:29:53 | 45.031278| 7.721366 | 940 | ? | Maddalena's Antenna |
 | dataset_20260321_Fabio_new | Fabio's new phone | 09:29:53 | 45.031278| 7.721366 | 940 | ? | Maddalena's Antenna |
 
