@@ -96,9 +96,9 @@ Plots h1…h8               ← pseudoranges, C/N₀, PVT, geoplot
 
 | Log name | Phone | Time | Lat | Lon | Alt (m) | Low Battery | Description |
 |---|---|---|---|---|---|---|---|
-| | | | | | | | |
-| | | | | | | | |
-| | | | | | | | |
+| dataset_20260318_basket_1 | Marco | 18:42:09 | 45.064881 | 7.657425 | 250 | ? | Log in openspace in front of I rooms |
+| dataset_20260318_basket_2 | Marco | 19:11:24 | 45.064881 | 7.657425 | 250 | ? | Log in openspace in front of I rooms, second try |
+| dataset_20260318_R3 | Marco | 18:24:21| 45.066375 | 7.657918 | 255 | ? | Log inside room R3 |
 | | | | | | | | |
 | | | | | | | | |
 
