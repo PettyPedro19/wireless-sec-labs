@@ -104,6 +104,7 @@ Plots h1…h8               ← pseudoranges, C/N₀, PVT, geoplot
 | dataset_20260324_microonde | Marco | 13:55:48 | 45.064378 | 7.659286 | 250 | 0 | Log measured inside Ex celid room, near window in the microwave room |
 | dataset_20260321_Fabio_old | Fabio's old phone | 09:29:53 | 45.031278| 7.721366 | 940 | ? | Maddalena's Antenna |
 | dataset_20260321_Fabio_new | Fabio's new phone | 09:29:53 | 45.031278| 7.721366 | 940 | ? | Maddalena's Antenna |
+| dataset_20260324_treno | Marco | 17:11:12 | 45.026320 | 7.657475 | 243 | 0 | Coordinates of Lingotto station, log take on train |
 
 ---
 
