@@ -29,8 +29,8 @@ addpath('library')
 %% input data (GNSS logger)
 % To add your own data:
 % save data from GnssLogger App, and edit dirName and prFileName appropriately
-prFileName    = 'gnss_log_2026_03_18_19_11_24.txt';
-dirName       = 'demoFiles/dataset_20260318_od';
+prFileName    = 'gnss_log_2026_03_24_17_11_12.txt';
+dirName       = 'demoFiles/dataset_20260324_treno';
 
 %% true position
 param.llaTrueDegDegM = [];
