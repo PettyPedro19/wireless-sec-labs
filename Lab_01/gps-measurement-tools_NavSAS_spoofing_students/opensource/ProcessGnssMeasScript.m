@@ -29,11 +29,11 @@ addpath('library')
 %% input data (GNSS logger)
 % To add your own data:
 % save data from GnssLogger App, and edit dirName and prFileName appropriately
-prFileName    = 'gnss_log_2026_03_24_17_11_12.txt';
-dirName       = 'demoFiles/dataset_20260324_treno';
+prFileName    = 'gnss_log_2026_03_25_09_41_18.txt';
+dirName       = 'demoFiles/dataset_20260325_trainstation_savi';
 
 %% true position
-param.llaTrueDegDegM = [];
+param.llaTrueDegDegM = [44.652009, 7.663959, 320];
 %enter true WGS84 lla, if you know it:
 % param.llaTrueDegDegM = [37.422578, -122.081678, -28]; %Charleston Park Test Site
 
