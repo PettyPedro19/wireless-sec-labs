@@ -107,6 +107,9 @@ Plots h1…h8               ← pseudoranges, C/N₀, PVT, geoplot
 | dataset_20260324_treno | Marco | 17:11:12 | 45.026320 | 7.657475 | 243 | 0 | Coordinates of Lingotto station, log take on train |
 | dataset_20260325_basket_old_marco | Marco's old phone | 11:12:58 | 45.064998 | 7.657404 | 250 | 0 | Log computed in front of "black box" |
 | dataset_20260325_trainstation_savi | Marco's old phone | 09:41:18 | 44.652009 | 7.663959 | 320 | 0 | Log computed in Savigliano train station |
+| datase_20260325_basket_2 | Marco's old phone | 13:53:52 | 45.064595 | 7.657548 | 250 | 0 | Logging using latest version of GNSSLogger |
+computed in Savigliano train station |
+| datase_20260325_tables_roomrR | Fabio's old phone | 16:18:19 | 45.066525 | 7.657821 | 245 | 1 | Logging using ultra power battery saver |
 
 ---
 

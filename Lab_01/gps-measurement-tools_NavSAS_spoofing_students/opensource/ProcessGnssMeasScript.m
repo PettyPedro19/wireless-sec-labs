@@ -29,8 +29,8 @@ addpath('library')
 %% input data (GNSS logger)
 % To add your own data:
 % save data from GnssLogger App, and edit dirName and prFileName appropriately
-prFileName    = 'gnss_log_2026_03_24_13_45_23.txt';
-dirName       = 'demoFiles/dataset_20260324_dumarey';
+prFileName    = 'gnss_log_2026_03_21_09_29_53.txt';
+dirName       = 'demoFiles/dataset_20260321_Fabio_old';
 
 %% true position
 param.llaTrueDegDegM = [];
@@ -38,10 +38,10 @@ param.llaTrueDegDegM = [];
 % param.llaTrueDegDegM = [37.422578, -122.081678, -28]; %Charleston Park Test Site
 
 %% Spoofing settings
-spoof.active = 1; % [1: spoofing active, 0: spoofing disabled]
-spoof.delay = 0; % [s] additional delay introduced by the spoofer [s]
+spoof.active = 0; % [1: spoofing active, 0: spoofing disabled]
+spoof.delay = 1e-3; % [s] additional delay introduced by the spoofer [s]
 spoof.t_start = 15; % [s] start spoofing time
-spoof.position = [45.06361, 7.679483, 347.48]; % spoofed position
+spoof.position = [45.0313415, 7.7213370, 776.82]; % spoofed position
 
 %% Plots
 plotAccDeltaRange = 0;
@@ -51,8 +51,17 @@ plotPseudorangeRate = 1;
 
 %% Set the data filter and Read log file
 dataFilter = SetDataFilter;
+% dataFilter{end+1, 1} = 'Svid';
+% dataFilter{end, 2} =  'Svid ~= 15';
+% dataFilter{end+1, 1} = 'Svid';
+% dataFilter{end, 2} =  'Svid ~= 16';
+% dataFilter{end+1, 1} = 'Svid';
+% dataFilter{end, 2} = 'Svid ~= 2';
+% dataFilter{end+1,1} = 'Cn0DbHz';
+% dataFilter{end,2} = 'Cn0DbHz>20';
 [gnssRaw,gnssAnalysis] = ReadGnssLogger(dirName,prFileName,dataFilter);
 if isempty(gnssRaw), return, end
+
 
 
 %% Get online ephemeris from Nasa CCDIS service, first compute UTC Time from gnssRaw:
