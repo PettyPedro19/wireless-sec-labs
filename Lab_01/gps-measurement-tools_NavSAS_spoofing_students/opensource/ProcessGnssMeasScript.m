@@ -29,16 +29,16 @@ addpath('library')
 %% input data (GNSS logger)
 % To add your own data:
 % save data from GnssLogger App, and edit dirName and prFileName appropriately
-prFileName    = 'gnss_log_2026_03_25_09_41_18.txt';
-dirName       = 'demoFiles/dataset_20260325_trainstation_savi';
+prFileName    = 'gnss_log_2026_03_24_13_45_23.txt';
+dirName       = 'demoFiles/dataset_20260324_dumarey';
 
 %% true position
-param.llaTrueDegDegM = [44.652009, 7.663959, 320];
+param.llaTrueDegDegM = [];
 %enter true WGS84 lla, if you know it:
 % param.llaTrueDegDegM = [37.422578, -122.081678, -28]; %Charleston Park Test Site
 
 %% Spoofing settings
-spoof.active = 0; % [1: spoofing active, 0: spoofing disabled]
+spoof.active = 1; % [1: spoofing active, 0: spoofing disabled]
 spoof.delay = 0; % [s] additional delay introduced by the spoofer [s]
 spoof.t_start = 15; % [s] start spoofing time
 spoof.position = [45.06361, 7.679483, 347.48]; % spoofed position
