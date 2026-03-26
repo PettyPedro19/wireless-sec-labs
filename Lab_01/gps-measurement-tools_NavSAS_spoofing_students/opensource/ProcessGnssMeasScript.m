@@ -29,8 +29,8 @@ addpath('library')
 %% input data (GNSS logger)
 % To add your own data:
 % save data from GnssLogger App, and edit dirName and prFileName appropriately
-prFileName    = 'gnss_log_2026_03_21_09_29_53.txt';
-dirName       = 'demoFiles/dataset_20260321_Fabio_old';
+prFileName    = 'gnss_log_2026_03_25_13_53_52.txt';
+dirName       = 'demoFiles/datase_20260325_basket_2';
 
 %% true position
 param.llaTrueDegDegM = [];
@@ -41,7 +41,7 @@ param.llaTrueDegDegM = [];
 spoof.active = 0; % [1: spoofing active, 0: spoofing disabled]
 spoof.delay = 1e-3; % [s] additional delay introduced by the spoofer [s]
 spoof.t_start = 15; % [s] start spoofing time
-spoof.position = [45.0313415, 7.7213370, 776.82]; % spoofed position
+spoof.position = [45.0639728, 7.6585169, 314.17]; % spoofed position
 
 %% Plots
 plotAccDeltaRange = 0;
