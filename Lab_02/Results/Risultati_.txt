@@ -1,0 +1,60 @@
+=========================================
+ SCENARIO: 
+ DATA: Fri Apr 17 17:07:37 CEST 2026
+=========================================
+
+--- Esecuzione: TCP (Client -> Server) ---
+RISULTATI TCP (Client -> Server):
+  Media : 32.15 Mbits/sec
+  Min   : 21.70 Mbits/sec
+  Max   : 36.90 Mbits/sec
+  StdDev: 4.20 Mbits/sec
+
+--- Esecuzione: TCP REVERSE (Server -> Client) ---
+RISULTATI TCP REVERSE (Server -> Client):
+  Media : 12.00 Mbits/sec
+  Min   : 4.09 Mbits/sec
+  Max   : 18.80 Mbits/sec
+  StdDev: 5.61 Mbits/sec
+
+--- Esecuzione: UDP Base (Client -> Server) ---
+RISULTATI UDP Base (Client -> Server):
+  Media : 37.24 Mbits/sec
+  Min   : 25.30 Mbits/sec
+  Max   : 40.50 Mbits/sec
+  StdDev: 4.67 Mbits/sec
+
+--- Esecuzione: UDP Base REVERSE (Server -> Client) ---
+RISULTATI UDP Base REVERSE (Server -> Client):
+  Media : 22.07 Mbits/sec
+  Min   : 7.50 Mbits/sec
+  Max   : 36.60 Mbits/sec
+  StdDev: 8.05 Mbits/sec
+
+--- Esecuzione: UDP 1472B (Client -> Server) ---
+RISULTATI UDP 1472B (Client -> Server):
+  Media : 36.52 Mbits/sec
+  Min   : 11.20 Mbits/sec
+  Max   : 43.00 Mbits/sec
+  StdDev: 11.37 Mbits/sec
+
+--- Esecuzione: UDP 1472B REVERSE (Server -> Client) ---
+RISULTATI UDP 1472B REVERSE (Server -> Client):
+  Media : 18.85 Mbits/sec
+  Min   : 6.31 Mbits/sec
+  Max   : 29.30 Mbits/sec
+  StdDev: 7.06 Mbits/sec
+
+--- Esecuzione: UDP 1473B Frammentato (Client -> Server) ---
+RISULTATI UDP 1473B Frammentato (Client -> Server):
+  Media : 27.12 Mbits/sec
+  Min   : 10.30 Mbits/sec
+  Max   : 33.50 Mbits/sec
+  StdDev: 6.70 Mbits/sec
+
+--- Esecuzione: UDP 1473B Frammentato REVERSE (Server -> Client) ---
+RISULTATI UDP 1473B Frammentato REVERSE (Server -> Client):
+  Media : 21.44 Mbits/sec
+  Min   : 15.40 Mbits/sec
+  Max   : 30.90 Mbits/sec
+  StdDev: 4.37 Mbits/sec
