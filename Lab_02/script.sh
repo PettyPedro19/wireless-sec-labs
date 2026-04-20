@@ -15,7 +15,7 @@ MAX_LEN=1400
 STEP_LEN=100
 ITERATIONS=10
 TEST_DURATION=10
-SLEEP_TIME=2
+SLEEP_TIME=1
 
 # ==========================================
 # Execution
