@@ -3,11 +3,14 @@
 # ==========================================
 # Configuration Variables
 # ==========================================
-SERVER_IP="192.168.1.100"
-
-# Genera il timestamp nel formato AnnoMeseGiorno_OreMinutiSecondi
+SERVER_IP=
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-OUTPUT_FILE="gput_${TIMESTAMP}.dat"
+
+OUT_DIR="../Results"
+
+mkdir -p "$OUT_DIR"
+
+OUTPUT_FILE="${OUT_DIR}/gput_${TIMESTAMP}.dat"
 TMP_FILE="tmp_gput.dat"
 
 MIN_LEN=100
@@ -56,4 +59,6 @@ done
 # Clean up temporary file
 rm -f "$TMP_FILE"
 
-echo "Tests completed successfully. Results saved to $OUTPUT_FILE"
+echo ""
+echo "You can print results with:"
+echo "gnuplot -p -e 'plot \"$OUTPUT_FILE\" using 1:(\$2-\$5):3:4:(\$2+\$5) with candlesticks'"
