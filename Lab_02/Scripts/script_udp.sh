@@ -3,7 +3,7 @@
 # ==========================================
 # Configuration Variables
 # ==========================================
-SERVER_IP=
+SERVER_IP=192.168.1.49
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 
 OUT_DIR="../Results"
@@ -32,7 +32,7 @@ for l in $(seq $MIN_LEN $STEP_LEN $MAX_LEN); do
     rm -f "$TMP_FILE"
     
     for i in $(seq 1 $ITERATIONS); do
-        iperf3 -c "$SERVER_IP" -l "$l" -u -b 0 -t "$TEST_DURATION" | \
+        iperf3 -c "$SERVER_IP" -R -l "$l" -u -b 0 -t "$TEST_DURATION" | \
             grep "receiver" | tr -s ' ' | cut -d ' ' -f 7 >> "$TMP_FILE"
         
         sleep "$SLEEP_TIME"
