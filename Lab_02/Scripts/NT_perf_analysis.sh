@@ -6,7 +6,7 @@ rm -f gput.dat
 # Loop through buffer sizes from 16 to 1000 in steps of 100
 for l in $(seq 16 100 1000); do
     # Execute iperf and extract the 7th field (bitrate) from the receiver line
-    iperf3 -c bigdatadb.polito.it -l $l -u --time 1 | \
+    iperf3 -c 192.168.1.3 -l $l -u --time 1 | \
     grep "receiver" | \
     tr -s ' ' | \
     cut -d ' ' -f 7 >> gput.dat
