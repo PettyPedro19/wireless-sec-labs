@@ -1,0 +1,19 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Scripts (as requested)
+
+# Test Results and temporary files
+Results/
+*.dat
+*.txt
+tmp_*
+
+# Version control
+.git/
