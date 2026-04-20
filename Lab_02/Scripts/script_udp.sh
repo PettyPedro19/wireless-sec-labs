@@ -1,44 +1,84 @@
 #!/bin/bash
 
-# ==========================================
-# Configuration Variables
-# ==========================================
-SERVER_IP=192.168.1.49
+NETWORK_SCENARIO="eth-eth"
+REVERSE_MODE="no"
+TARGET_BITRATE="0" # 0 means unlimited for UDP in iperf3
+
+SERVER_IP="192.168.1.49"
+SERVER_OS="Ubuntu Linux 22.04"
+SERVER_IFACE="enpls0f0"
+SERVER_LINK_SPEED="1000Mb/s"
+
+CLIENT_IFACE="en0"
+CLIENT_LINK_SPEED="Unknown" 
+
+CLIENT_OS=$(sw_vers -productName 2>/dev/null)" "$(sw_vers -productVersion 2>/dev/null)
+IPERF_VERSION=$(iperf3 -v | awk 'NR==1')
+CLIENT_IP=$(ipconfig getifaddr "$CLIENT_IFACE")
+CLIENT_MTU=$(ifconfig "$CLIENT_IFACE" | grep -o "mtu [0-9]*" | awk '{print $2}')
+
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-
 OUT_DIR="../Results"
-
 mkdir -p "$OUT_DIR"
 
-OUTPUT_FILE="${OUT_DIR}/gput_${TIMESTAMP}.dat"
+OUTPUT_FILE="${OUT_DIR}/udp_gput_${TIMESTAMP}.dat"
+INFO_FILE="${OUT_DIR}/udp_gput_${TIMESTAMP}_info.txt"
 TMP_FILE="tmp_gput.dat"
 
 MIN_LEN=100
-MAX_LEN=1400
+MAX_LEN=1472
 STEP_LEN=100
+
 ITERATIONS=10
 TEST_DURATION=10
 SLEEP_TIME=1
 
-# ==========================================
-# Execution
-# ==========================================
+cat <<EOF > "$INFO_FILE"
+========================================
+TEST CONFIGURATION METADATA
+========================================
+Timestamp: $TIMESTAMP
+Scenario: $NETWORK_SCENARIO
+Reverse Mode (-R): $REVERSE_MODE
 
-# Scrive l'intestazione nel nuovo file
+[ TEST PARAMETERS ]
+Test Type: UDP (Length Sweep)
+Target Bitrate (-b): $TARGET_BITRATE
+Length Min: $MIN_LEN Bytes
+Length Max: $MAX_LEN Bytes
+Length Step: $STEP_LEN Bytes
+Iterations per Step: $ITERATIONS
+Time per Iteration (-t): $TEST_DURATION seconds
+
+[ CLIENT INFO ]
+Interface: $CLIENT_IFACE
+IP Address: $CLIENT_IP
+OS: $CLIENT_OS
+MTU: $CLIENT_MTU
+Link Speed: $CLIENT_LINK_SPEED
+
+[ SERVER INFO ]
+IP Address: $SERVER_IP
+Interface: $SERVER_IFACE
+OS: $SERVER_OS
+Link Speed: $SERVER_LINK_SPEED
+
+[ SOFTWARE ]
+Tool: $IPERF_VERSION
+========================================
+EOF
+
 echo "# Length(Bytes) Avg(Mbps) Min(Mbps) Max(Mbps) StdDev" > "$OUTPUT_FILE"
-echo "Starting tests. Results will be saved in: $OUTPUT_FILE"
 
 for l in $(seq $MIN_LEN $STEP_LEN $MAX_LEN); do
     rm -f "$TMP_FILE"
     
     for i in $(seq 1 $ITERATIONS); do
-        iperf3 -c "$SERVER_IP" -R -l "$l" -u -b 0 -t "$TEST_DURATION" | \
+        iperf3 -c "$SERVER_IP" -l "$l" -u -b "$TARGET_BITRATE" -t "$TEST_DURATION" | \
             grep "receiver" | tr -s ' ' | cut -d ' ' -f 7 >> "$TMP_FILE"
-        
         sleep "$SLEEP_TIME"
     done
     
-    # Calculate statistics and append to the output file
     awk -v len="$l" '
         BEGIN { max=0; min=9999999999 } 
         {
@@ -56,9 +96,7 @@ for l in $(seq $MIN_LEN $STEP_LEN $MAX_LEN); do
         }' "$TMP_FILE" >> "$OUTPUT_FILE"
 done
 
-# Clean up temporary file
 rm -f "$TMP_FILE"
 
-echo ""
 echo "You can print results with:"
 echo "gnuplot -p -e 'plot \"$OUTPUT_FILE\" using 1:(\$2-\$5):3:4:(\$2+\$5) with candlesticks'"
