@@ -1,0 +1,33 @@
+========================================
+TEST CONFIGURATION METADATA
+========================================
+Timestamp: 20260421_235116
+Scenario: wifi-eth-rts
+Reverse Mode (-R): no
+RTS Threshold: 500 Bytes
+
+[ TEST PARAMETERS ]
+Test Type: UDP (Length Sweep)
+Target Bitrate (-b): 0
+Length Min: 16 Bytes
+Length Max: 1472 Bytes
+Length Step: 100 Bytes
+Iterations per Step: 10
+Time per Iteration (-t): 5 seconds
+
+[ CLIENT INFO ]
+Interface: wlo1  (WiFi)
+IP Address: 192.168.1.7
+OS: Ubuntu 24.04.3 LTS
+MTU: 1500
+Link Speed: 433.3Mb/s
+
+[ SERVER INFO ]
+IP Address: 192.168.1.03
+Interface: en5
+OS: macOS
+Link Speed: 100Mb/s
+
+[ SOFTWARE ]
+Tool: iperf 3.16 (cJSON 1.7.15)
+========================================
