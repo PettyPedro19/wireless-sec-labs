@@ -1,0 +1,25 @@
+Perfetto, full duplex semplifica il modello teorico.
+Con full duplex a 100 Mbps il goodput massimo atteso è:
+TCP
+
+Efficienza = payload TCP / (Eth frame totale + ACK)
+= 1460 / (1538 + 54) ≈ 91.8%
+→ Goodput max TCP ≈ 91.8 Mbps
+
+
+Dove:
+	•	1460 = payload TCP (MSS = MTU 1500 - IP 20 - TCP 20)
+	•	1538 = frame Ethernet (1500 payload + 14 header + 4 FCS + 20 preambolo/IFG)
+	•	54 = ACK frame Ethernet (20 TCP + 20 IP + 14 Eth header = 54, poi arrotondato a 64 byte min + 20 preambolo/IFG = 84 byte)
+UDP
+
+Efficienza = payload UDP / Eth frame totale
+= 1472 / 1538 ≈ 95.7%
+→ Goodput max UDP ≈ 95.7 Mbps
+
+
+Dove:
+	•	1472 = payload UDP massimo (MTU 1500 - IP 20 - UDP 8)
+	•	1538 = stesso frame Ethernet di prima
+
+Questi sono i valori di riferimento con cui confrontare i tuoi risultati nel report. Con full duplex gli ACK TCP non rubano banda al flusso dati, quindi l’efficienza è alta. Se fosse stato half duplex il discorso sarebbe stato ben diverso — il lab lo chiede esplicitamente al punto 3 proprio perché l’impatto è significativo.

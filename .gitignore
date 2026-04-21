@@ -11,3 +11,8 @@ Thumbs.db
 .git/
 
 .sh
+
+# Packet capture files
+*.pcap
+*.pcapng
+*.cap
