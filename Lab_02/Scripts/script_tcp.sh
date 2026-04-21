@@ -3,14 +3,14 @@
 NETWORK_SCENARIO="eth-eth"
 REVERSE_MODE="no"
 
-SERVER_IP="192.168.1.49"
-SERVER_OS="Ubuntu Linux 22.04"
-SERVER_IFACE="enpls0f0"
-SERVER_LINK_SPEED="1000Mb/s"
+SERVER_IP="192.168.1.3"
+SERVER_OS="Ubuntu 24.04.3"
+SERVER_IFACE="eno1"
+SERVER_LINK_SPEED="100Mb/s"
 SERVER_MTU="1500"
 
-CLIENT_IFACE=""
-CLIENT_LINK_SPEED="" 
+CLIENT_IFACE="en5"
+CLIENT_LINK_SPEED="100Mb/s" 
 
 CLIENT_OS=$(sw_vers -productName 2>/dev/null)" "$(sw_vers -productVersion 2>/dev/null)
 IPERF_VERSION=$(iperf3 -v | awk 'NR==1')
@@ -18,19 +18,19 @@ CLIENT_IP=$(ipconfig getifaddr "$CLIENT_IFACE")
 CLIENT_BASE_MTU=$(ifconfig "$CLIENT_IFACE" | grep -o "mtu [0-9]*" | awk '{print $2}')
 
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-OUT_DIR="../Results"
+OUT_DIR="../ResultsEthEthtcp"
 mkdir -p "$OUT_DIR"
 
 OUTPUT_FILE="${OUT_DIR}/tcp_gput_${TIMESTAMP}.dat"
 INFO_FILE="${OUT_DIR}/tcp_gput_${TIMESTAMP}_info.txt"
 TMP_FILE="tmp_gput.dat"
 
-MIN_MTU=500
+MIN_MTU=16
 MAX_MTU=1500
-STEP_MTU=200
+STEP_MTU=100
 
 ITERATIONS=10
-TEST_DURATION=10
+TEST_DURATION=5
 SLEEP_TIME=1
 
 cat <<EOF > "$INFO_FILE"

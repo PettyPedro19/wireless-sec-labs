@@ -4,13 +4,13 @@ NETWORK_SCENARIO="eth-eth"
 REVERSE_MODE="no"
 TARGET_BITRATE="0" # 0 means unlimited for UDP in iperf3
 
-SERVER_IP="192.168.1.49"
-SERVER_OS="Ubuntu Linux 22.04"
-SERVER_IFACE="enpls0f0"
-SERVER_LINK_SPEED="1000Mb/s"
+SERVER_IP="192.168.1.3"
+SERVER_OS="Ubuntu 24.04.3"
+SERVER_IFACE="eno1"
+SERVER_LINK_SPEED="100Mb/s"
 
-CLIENT_IFACE="en0"
-CLIENT_LINK_SPEED="Unknown" 
+CLIENT_IFACE="en5"
+CLIENT_LINK_SPEED="100Mb/s" 
 
 CLIENT_OS=$(sw_vers -productName 2>/dev/null)" "$(sw_vers -productVersion 2>/dev/null)
 IPERF_VERSION=$(iperf3 -v | awk 'NR==1')
@@ -18,19 +18,19 @@ CLIENT_IP=$(ipconfig getifaddr "$CLIENT_IFACE")
 CLIENT_MTU=$(ifconfig "$CLIENT_IFACE" | grep -o "mtu [0-9]*" | awk '{print $2}')
 
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-OUT_DIR="../Results"
+OUT_DIR="../ResultsLabinf20260421"
 mkdir -p "$OUT_DIR"
 
 OUTPUT_FILE="${OUT_DIR}/udp_gput_${TIMESTAMP}.dat"
 INFO_FILE="${OUT_DIR}/udp_gput_${TIMESTAMP}_info.txt"
 TMP_FILE="tmp_gput.dat"
 
-MIN_LEN=100
+MIN_LEN=16
 MAX_LEN=1472
 STEP_LEN=100
 
 ITERATIONS=10
-TEST_DURATION=10
+TEST_DURATION=5
 SLEEP_TIME=1
 
 cat <<EOF > "$INFO_FILE"
@@ -49,6 +49,7 @@ Length Max: $MAX_LEN Bytes
 Length Step: $STEP_LEN Bytes
 Iterations per Step: $ITERATIONS
 Time per Iteration (-t): $TEST_DURATION seconds
+Theoretical Test duration: (($TEST_DURATION + $SLEEP_TIME) * $ITERATIONS) * 15
 
 [ CLIENT INFO ]
 Interface: $CLIENT_IFACE

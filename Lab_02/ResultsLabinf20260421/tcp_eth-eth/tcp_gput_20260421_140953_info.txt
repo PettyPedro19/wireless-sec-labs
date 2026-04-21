@@ -1,30 +1,30 @@
 ========================================
 TEST CONFIGURATION METADATA
 ========================================
-Timestamp: 20260421_000458
-Scenario: wifi-eth
+Timestamp: 20260421_140953
+Scenario: eth-eth
 Reverse Mode (-R): no
 
 [ TEST PARAMETERS ]
-Test Type: UDP (Length Sweep)
-Target Bitrate (-b): 95M
-Length Min: 100 Bytes
-Length Max: 1472 Bytes
-Length Step: 200 Bytes
-Iterations per Step: 5
+Test Type: TCP (MTU Sweep)
+MTU Min: 16 Bytes
+MTU Max: 1500 Bytes
+MTU Step: 100 Bytes
+Iterations per Step: 10
 Time per Iteration (-t): 5 seconds
 
 [ CLIENT INFO ]
-Interface: en0
-IP Address: 192.168.1.4
+Interface: en5
+IP Address: 192.168.1.2
 OS: macOS 15.6.1
-MTU: 1500
-Link Speed: 866Mb/s
+Base MTU: 1500
+Link Speed: 100Mb/s
 
 [ SERVER INFO ]
 IP Address: 192.168.1.3
 Interface: eno1
 OS: Ubuntu 24.04.3
+Base MTU: 1500
 Link Speed: 100Mb/s
 
 [ SOFTWARE ]
