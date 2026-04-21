@@ -1,0 +1,32 @@
+========================================
+TEST CONFIGURATION METADATA
+========================================
+Timestamp: 20260421_154749
+Scenario: wifi-eth
+Reverse Mode (-R): no
+
+[ TEST PARAMETERS ]
+Test Type: TCP (MTU Sweep)
+MTU Min: 16 Bytes
+MTU Max: 1500 Bytes
+MTU Step: 100 Bytes
+Iterations per Step: 10
+Time per Iteration (-t): 5 seconds
+
+[ CLIENT INFO ]
+Interface: en0
+IP Address: 192.168.1.6
+OS: macOS 15.6.1
+Base MTU: 1500
+Link Speed: 866Mb/s
+
+[ SERVER INFO ]
+IP Address: 192.168.1.3
+Interface: eno1
+OS: Ubuntu 24.04.3
+Base MTU: 1500
+Link Speed: 100Mb/s
+
+[ SOFTWARE ]
+Tool: iperf 3.21 (cJSON 1.7.15)
+========================================

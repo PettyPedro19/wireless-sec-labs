@@ -1,0 +1,133 @@
+————————————————————————————————————————————————————————————————————
+NETWORK
+————————————————————————————————————————————————————————————————————
+    Primary IPv4         : en0 (Wi-Fi / DBD8731A-12CD-4ED5-B780-A7BB9D5DF830)
+                         : 192.168.1.6
+    Primary IPv6         : None
+    DNS Addresses        : 8.8.8.8
+    Apple                : Reachable
+————————————————————————————————————————————————————————————————————
+WIFI
+————————————————————————————————————————————————————————————————————
+    MAC Address          : <redacted> (hw=<redacted>)
+    Interface Name       : en0
+    Power                : On [On]
+    Op Mode              : STA
+    SSID                 : <redacted>
+    BSSID                : <redacted>
+    RSSI                 : -46 dBm
+    CCA                  : 2 %
+    Noise                : -90 dBm
+    Tx Rate              : 866.0 Mbps
+    Security             : WPA2 Personal
+    PHY Mode             : 11ac
+    MCS Index            : 9
+    Guard Interval       : 400
+    NSS                  : 2
+    Channel              : 5g36/80
+    Country Code         : IT
+    Scan Cache Count     : 21
+    NetworkServiceID     : DBD8731A-12CD-4ED5-B780-A7BB9D5DF830
+    IPv4 Config Method   : DHCP
+    IPv4 Address         : 192.168.1.6
+    IPv4 Router          : 192.168.1.1
+    IPv6 Config Method   : Automatic
+    IPv6 Address         : fe80::f7:6fe5:de50:23cb
+    IPv6 Router          : None
+    DNS                  : 192.168.1.1
+                         : 192.168.1.1
+    BTC Mode             : Off
+    Desense              : 
+    Chain Ack            : []
+    BTC Profile 2.4GHz   : Disabled
+    BTC Profile 5GHz     : Disabled
+    Sniffer Supported    : YES
+    Supports 6e          : No
+    Supported Channels   : 2g1/20,2g2/20,2g3/20,2g4/20,2g5/20,2g6/20,2g7/20,2g8/20,2g9/20,2g10/20,2g11/20,2g12/20,2g13/20,5g36/20,5g40/20,5g44/20,5g48/20,5g52/20,5g56/20,5g60/20,5g64/20,5g100/20,5g104/20,5g108/20,5g112/20,5g116/20,5g120/20,5g124/20,5g128/20,5g132/20,5g136/20,5g140/20,5g149/20,5g153/20,5g157/20,5g161/20,5g165/20,5g36/40,5g40/40,5g44/40,5g48/40,5g52/40,5g56/40,5g60/40,5g64/40,5g100/40,5g104/40,5g108/40,5g112/40,5g116/40,5g120/40,5g124/40,5g128/40,5g132/40,5g136/40,5g149/40,5g153/40,5g157/40,5g161/40,5g36/80,5g40/80,5g44/80,5g48/80,5g52/80,5g56/80,5g60/80,5g64/80,5g100/80,5g104/80,5g108/80,5g112/80,5g116/80,5g120/80,5g124/80,5g128/80,5g149/80,5g153/80,5g157/80,5g161/80
+————————————————————————————————————————————————————————————————————
+BLUETOOTH
+————————————————————————————————————————————————————————————————————
+    Power                : On
+    Address              : A8:8F:D9:3E:B7:69
+    Discoverable         : No
+    Connectable          : Yes
+    Scanning             : No
+    Devices              : 7 (paired=7 cloud=1 connected=0)
+
+    X-PM12
+    Address          : 40:EF:4C:D0:E5:C8
+    Paired           : Yes
+    CloudPaired      : No
+    Connected        : No
+
+    AirPods Pro di Marco
+    Address          : 28:2D:7F:E5:84:66
+    Paired           : Yes
+    CloudPaired      : No
+    Connected        : No
+
+    OnePlus Nord 2T 5G
+    Address          : 48:74:12:B7:F8:CA
+    Paired           : Yes
+    CloudPaired      : No
+    Connected        : No
+
+    AirPods di Marco
+    Address          : 60:83:73:E5:79:47
+    Paired           : Yes
+    CloudPaired      : No
+    Connected        : No
+
+    KB066 Mac Keyboard
+    Address          : F0:14:00:05:FB:FA
+    Paired           : Yes
+    CloudPaired      : No
+    Connected        : No
+
+    iPad (2)
+    Address          : 0BC547C0-81AC-2BBA-0743-42D04EB0E850
+    Paired           : Yes
+    CloudPaired      : Yes
+    Connected        : No
+
+    BT5.1  Mouse
+    Address          : 37F6CB1C-E3B2-DAAE-BFDD-2EB19B642343
+    Paired           : Yes
+    CloudPaired      : No
+    Connected        : No
+
+————————————————————————————————————————————————————————————————————
+AWDL
+————————————————————————————————————————————————————————————————————
+    MAC Address            : 72:2a:e6:72:ce:59 (hw=72:2a:e6:72:ce:59)
+    AirDrop Disc Mode      : Everyone
+    AWDL Enabled           : No
+    Interface Name         : awdl0
+    Power                  : On
+    IPv6 Address           : fe80::702a:e6ff:fe72:ce59
+    Schedule State         : n/a
+    Channel Sequence       : n/a
+    Op Mode                : n/a
+    Real Time Mode         : No
+    Sync State             : n/a
+    Sync Params            : n/a
+    Master Channel         : n/a
+    Election Params        : n/a
+————————————————————————————————————————————————————————————————————
+POWER
+————————————————————————————————————————————————————————————————————
+    Power Source         : Battery
+    Battery Warning Level: None
+    System Caps          : FullWake:cpu disk net aud vid 
+————————————————————————————————————————————————————————————————————
+WIFI FAULTS LAST HOUR
+————————————————————————————————————————————————————————————————————
+    None
+————————————————————————————————————————————————————————————————————
+WIFI RECOVERIES LAST HOUR
+————————————————————————————————————————————————————————————————————
+    None
+————————————————————————————————————————————————————————————————————
+WIFI LINK TESTS LAST HOUR
+————————————————————————————————————————————————————————————————————
+    None

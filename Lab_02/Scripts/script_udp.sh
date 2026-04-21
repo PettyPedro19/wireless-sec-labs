@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NETWORK_SCENARIO="eth-eth"
+NETWORK_SCENARIO="wifi-eth"
 REVERSE_MODE="no"
 TARGET_BITRATE="0" # 0 means unlimited for UDP in iperf3
 
@@ -9,8 +9,8 @@ SERVER_OS="Ubuntu 24.04.3"
 SERVER_IFACE="eno1"
 SERVER_LINK_SPEED="100Mb/s"
 
-CLIENT_IFACE="en5"
-CLIENT_LINK_SPEED="100Mb/s" 
+CLIENT_IFACE="en0"
+CLIENT_LINK_SPEED="866Mb/s" 
 
 CLIENT_OS=$(sw_vers -productName 2>/dev/null)" "$(sw_vers -productVersion 2>/dev/null)
 IPERF_VERSION=$(iperf3 -v | awk 'NR==1')
@@ -18,7 +18,7 @@ CLIENT_IP=$(ipconfig getifaddr "$CLIENT_IFACE")
 CLIENT_MTU=$(ifconfig "$CLIENT_IFACE" | grep -o "mtu [0-9]*" | awk '{print $2}')
 
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-OUT_DIR="../ResultsLabinf20260421"
+OUT_DIR="../ResultsudpWifiEth"
 mkdir -p "$OUT_DIR"
 
 OUTPUT_FILE="${OUT_DIR}/udp_gput_${TIMESTAMP}.dat"
