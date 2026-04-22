@@ -1,12 +1,11 @@
 #!/bin/bash
 
-NETWORK_SCENARIO="wifi-eth-rts"
+NETWORK_SCENARIO="wifi-eth-udp-rts"
 REVERSE_MODE="no"
 TARGET_BITRATE="0"
-RTS_THRESHOLD=500
 
 # ── SERVER (Mac) ───────────────────────────────────────────────────────────
-SERVER_IP="192.168.1.03"        
+SERVER_IP="192.168.1.02"        
 SERVER_OS="macOS"
 SERVER_IFACE="en5"
 SERVER_LINK_SPEED="100Mb/s"
@@ -28,7 +27,7 @@ OUTPUT_FILE="${OUT_DIR}/udp_gput_wifi_rts${RTS_THRESHOLD}_${TIMESTAMP}.dat"
 INFO_FILE="${OUT_DIR}/udp_gput_wifi_rts${RTS_THRESHOLD}_${TIMESTAMP}_info.txt"
 TMP_FILE="tmp_gput.dat"
 
-MIN_LEN=16
+MIN_LEN=256
 MAX_LEN=1472
 STEP_LEN=100
 
@@ -36,9 +35,6 @@ ITERATIONS=10
 TEST_DURATION=5
 SLEEP_TIME=1
 
-# ── Imposta RTS ────────────────────────────────────────────────────────────
-echo "[INFO] Setting RTS threshold to $RTS_THRESHOLD bytes on $CLIENT_IFACE"
-sudo iwconfig "$CLIENT_IFACE" rts "$RTS_THRESHOLD"
 
 cat <<EOF > "$INFO_FILE"
 ========================================
@@ -47,7 +43,6 @@ TEST CONFIGURATION METADATA
 Timestamp: $TIMESTAMP
 Scenario: $NETWORK_SCENARIO
 Reverse Mode (-R): $REVERSE_MODE
-RTS Threshold: $RTS_THRESHOLD Bytes
 
 [ TEST PARAMETERS ]
 Test Type: UDP (Length Sweep)
@@ -57,9 +52,10 @@ Length Max: $MAX_LEN Bytes
 Length Step: $STEP_LEN Bytes
 Iterations per Step: $ITERATIONS
 Time per Iteration (-t): $TEST_DURATION seconds
+Theoretical Test duration: (($TEST_DURATION + $SLEEP_TIME) * $ITERATIONS) * 15
 
 [ CLIENT INFO ]
-Interface: $CLIENT_IFACE  (WiFi)
+Interface: $CLIENT_IFACE
 IP Address: $CLIENT_IP
 OS: $CLIENT_OS
 MTU: $CLIENT_MTU
@@ -80,27 +76,31 @@ echo "# Length(Bytes) Avg(Mbps) Min(Mbps) Max(Mbps) StdDev" > "$OUTPUT_FILE"
 
 for l in $(seq $MIN_LEN $STEP_LEN $MAX_LEN); do
     rm -f "$TMP_FILE"
-
+    
     for i in $(seq 1 $ITERATIONS); do
         iperf3 -c "$SERVER_IP" -l "$l" -u -b "$TARGET_BITRATE" -t "$TEST_DURATION" | \
             grep "receiver" | tr -s ' ' | cut -d ' ' -f 7 >> "$TMP_FILE"
         sleep "$SLEEP_TIME"
     done
-
+    
     awk -v len="$l" '
-        BEGIN { max=0; min=9999999999 }
-        { x+=$1; y+=$1^2;
-          if($1<min) min=$1; if($1>max) max=$1 }
-        END { if(NR>0) {
-            avg=x/NR; std=sqrt(y/NR-avg^2);
-            printf "%d %.2f %.2f %.2f %.2f\n", len, avg, min, max, std
-        }}' "$TMP_FILE" >> "$OUTPUT_FILE"
+        BEGIN { max=0; min=9999999999 } 
+        {
+            x += $1; 
+            y += $1^2; 
+            if ($1 < min) { min = $1 }
+            if ($1 > max) { max = $1 }
+        } 
+        END {
+            if (NR > 0) {
+                avg = x / NR;
+                std = sqrt(y / NR - (avg^2));
+                printf "%d %.2f %.2f %.2f %.2f\n", len, avg, min, max, std
+            }
+        }' "$TMP_FILE" >> "$OUTPUT_FILE"
 done
 
 rm -f "$TMP_FILE"
 
-sudo iwconfig "$CLIENT_IFACE" rts 2347
-echo "[INFO] RTS reset to default (2347)"
-
-echo "Plot with:"
+echo "You can print results with:"
 echo "gnuplot -p -e 'plot \"$OUTPUT_FILE\" using 1:(\$2-\$5):3:4:(\$2+\$5) with candlesticks'"
