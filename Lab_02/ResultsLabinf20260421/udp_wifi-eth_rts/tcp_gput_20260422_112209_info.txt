@@ -1,0 +1,32 @@
+========================================
+TEST CONFIGURATION METADATA
+========================================
+Timestamp: 20260422_112209
+Scenario: wifi-eth-rts
+Reverse Mode (-R): no
+
+[ TEST PARAMETERS ]
+Test Type: TCP (MTU Sweep)
+MTU Min: 256 Bytes
+MTU Max: 1500 Bytes
+MTU Step: 100 Bytes
+Iterations per Step: 10
+Time per Iteration (-t): 5 seconds
+
+[ CLIENT INFO ]
+Interface: wlo1
+IP Address: 192.168.1.7
+OS:  
+Base MTU: 1500
+Link Speed: 433.3Mb/s
+
+[ SERVER INFO ]
+IP Address: 192.168.1.2
+Interface: en5
+OS: macOS
+Base MTU: 1500
+Link Speed: 100Mb/s
+
+[ SOFTWARE ]
+Tool: iperf 3.16 (cJSON 1.7.15)
+========================================

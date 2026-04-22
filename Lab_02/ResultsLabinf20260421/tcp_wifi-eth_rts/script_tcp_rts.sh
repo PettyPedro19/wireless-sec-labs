@@ -16,11 +16,11 @@ CLIENT_LINK_SPEED="433.3Mb/s"
 
 CLIENT_OS=$(sw_vers -productName 2>/dev/null)" "$(sw_vers -productVersion 2>/dev/null)
 IPERF_VERSION=$(iperf3 -v | awk 'NR==1')
-CLIENT_IP=$(ipconfig getifaddr "$CLIENT_IFACE")
-CLIENT_BASE_MTU=$(ifconfig "$CLIENT_IFACE" | grep -o "mtu [0-9]*" | awk '{print $2}')
+CLIENT_IP=$(ip -f inet addr show "$CLIENT_IFACE" | awk '/inet / {print $2}' | cut -d/ -f1)
+CLIENT_BASE_MTU=$(cat /sys/class/net/"$CLIENT_IFACE"/mtu)
 
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-OUT_DIR="../Results_wifi-eth_tcp_rts"
+OUT_DIR="Results_wifi-eth_tcp_rts"
 mkdir -p "$OUT_DIR"
 
 OUTPUT_FILE="${OUT_DIR}/tcp_gput_${TIMESTAMP}.dat"
