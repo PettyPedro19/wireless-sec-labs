@@ -1,0 +1,26 @@
+Device:      Apple AirPods Pro 2 
+Vendor:      Apple Inc.
+
+Alice setup:
+OS:          macOS Sequoia 15.6.1 (MacBook Air M2)
+Tools:       PacketLogger (Xcode Additional Tools 16), Wireshark 4.6.5
+BT Adapter:  Integrated Apple BCM (MacBook Air M2)
+
+Trudy setup:
+OS:          macOS x.x.x  (MacBook Air M1)
+Tools:       PacketLogger (Xcode Additional Tools 16), Wireshark 4.x
+BT Adapter:  xxxx
+
+=== RPAs identificated in Trudy's log ===
+RPA1: AA:BB:CC:DD:EE:FF  (attivo da T=x a T=xs circa)
+RPA2: 11:22:33:44:55:66  (attivo da T=x a T=xs circa)
+RPA3: ...
+
+=== Payload fingerprint used for linkability ===
+btcommon.eir_ad.entry.data == 07:19:01:24:20...
+
+=== Wireshark main filters ===
+Alice PMAC:     bthci_evt.bd_addr == 28:2d:7f:e5:84:66
+From Alice's log, LE Extended Advertising Report -> 
+btcommon.eir_ad.entry.data == 07:19:01:24:20:14:aa:b8:11:00:00:f0:f9:14:82:6f:1f:fa:67:c2:66:1f:7b:f7:11:91:2e ||
+btcommon.eir_ad.entry.data == 07:19:01:24:20:35:aa:b8:3d:00:04:7e:cd:ac:a4:b4:9e:d5:67:1a:47:7d:b7:dd:0f:2e:ed || btcommon.eir_ad.entry.data == 07:19:01:24:20:73:aa:98:36:00:04:05:d6:96:cc:58:4f:28:7a:c8:71:30:a0:a5:bf:5d:1b
