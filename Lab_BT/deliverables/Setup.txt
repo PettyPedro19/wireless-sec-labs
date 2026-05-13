@@ -1,26 +1,37 @@
-Device:      Apple AirPods Pro 2 
-Vendor:      Apple Inc.
+--- Author ---
+Name:			Marco
+Lastname:		Pedron
+Matricola:		s285048
+email:			s285048@studenti.polito.it
 
-Alice setup:
-OS:          macOS Sequoia 15.6.1 (MacBook Air M2)
-Tools:       PacketLogger (Xcode Additional Tools 16), Wireshark 4.6.5
-BT Adapter:  Integrated Apple BCM (MacBook Air M2)
+Name:			Federico
+Lastname:		Papantuono
+Matricola:		s360915
+email:			s360915@studenti.polito.it
 
-Trudy setup:
-OS:          macOS x.x.x  (MacBook Air M1)
-Tools:       PacketLogger (Xcode Additional Tools 16), Wireshark 4.x
-BT Adapter:  xxxx
+--- Setup ---
+Alice's PC:		macOS Sequoia 15.6.1 (MacBook Air M2), Apple Inc.
+Alice's chipset:	BCM_4387
+Tools:       		PacketLogger , Wireshark 4.6.5
+Alice's device:		Apple AirPods Pro 2, Apple Inc.
 
-=== RPAs identificated in Trudy's log ===
-RPA1: AA:BB:CC:DD:EE:FF  (attivo da T=x a T=xs circa)
-RPA2: 11:22:33:44:55:66  (attivo da T=x a T=xs circa)
-RPA3: ...
+Trudy's PC:		macOS Sonoma 14.8.4 (MacBook Air), Apple Inc.
+Trudy's chipset:	BCM_4355
+Tools:       		PacketLogger Version 26.0.0, Wireshark 4.6.4
 
-=== Payload fingerprint used for linkability ===
-btcommon.eir_ad.entry.data == 07:19:01:24:20...
+Timeline:
+Alice's Devices connects two times to Alice's PC
+Each time, Alice's device changes its RPA
 
-=== Wireshark main filters ===
-Alice PMAC:     bthci_evt.bd_addr == 28:2d:7f:e5:84:66
-From Alice's log, LE Extended Advertising Report -> 
-btcommon.eir_ad.entry.data == 07:19:01:24:20:14:aa:b8:11:00:00:f0:f9:14:82:6f:1f:fa:67:c2:66:1f:7b:f7:11:91:2e ||
-btcommon.eir_ad.entry.data == 07:19:01:24:20:35:aa:b8:3d:00:04:7e:cd:ac:a4:b4:9e:d5:67:1a:47:7d:b7:dd:0f:2e:ed || btcommon.eir_ad.entry.data == 07:19:01:24:20:73:aa:98:36:00:04:05:d6:96:cc:58:4f:28:7a:c8:71:30:a0:a5:bf:5d:1b
+--- Traces ---
+Trudy's MAC RPA addresses
+(bthci_evt.bd_addr == 4c:ff:06:3f:b1:5c)
+||
+(bthci_evt.bd_addr == 49:e8:ab:9a:74:62)
+||
+(bthci_evt.bd_addr == 67:85:89:7e:99:6d)
+||
+(bthci_evt.bd_addr == 5b:08:6c:d1:85:46)
+
+Alice's device MAC public addresses
+bthci_evt.bd_addr == 28:2d:7f:e5:84:66
