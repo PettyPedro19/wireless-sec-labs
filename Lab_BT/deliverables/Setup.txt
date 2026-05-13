@@ -12,7 +12,7 @@ email:			s360915@studenti.polito.it
 --- Setup ---
 Alice's PC:		macOS Sequoia 15.6.1 (MacBook Air M2), Apple Inc.
 Alice's chipset:	BCM_4387
-Tools:       		PacketLogger , Wireshark 4.6.5
+Tools:       		PacketLogger 2022.03.30, Wireshark 4.6.5
 Alice's device:		Apple AirPods Pro 2, Apple Inc.
 
 Trudy's PC:		macOS Sonoma 14.8.4 (MacBook Air), Apple Inc.
@@ -35,3 +35,15 @@ Trudy's MAC RPA addresses
 
 Alice's device MAC public addresses
 bthci_evt.bd_addr == 28:2d:7f:e5:84:66
+
+--- RPA Analysis (Trudy's perspective) ---
+
+Trudy's passive capture revealed two consecutive pairs of RPAs, reflecting both
+a single RPA rotation event and the dual-earbud architecture of the AirPods Pro 2,
+whose left and right earbuds advertise independently with separate BLE radios.
+The two earbuds within each pair were distinguished by their UTP byte value
+(0x15 vs 0x75) in the Manufacturer Specific Data payload.
+
+All four RPAs were linked to the same physical device using a payload-level
+fingerprint filter on the stable fields of the Apple Continuity Protocol
+(Type 0x07, Model ID 0x2024), which persist unchanged across RPA rotations.
